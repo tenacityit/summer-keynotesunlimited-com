@@ -1,35 +1,22 @@
 {
   "podcast": {
-    "title": "SmikleSpeaks",
-    "link": "https://rss.com/podcasts/smiklespeaks",
-    "image": "https://media.rss.com/smiklespeaks/podcast_cover_20260604_040611_6d1d5f07b274f64be9588bfeeba5f674.jpg",
-    "episodeCount": 325,
     "episodes": [
       {
         "title": "Understanding Neurodivergence, Featuring Summer Jelinek, Pt. 1",
-        "published": "2026-08-05T11:15:00+00:00",
-        "link": "https://rss.com/podcasts/smiklespeaks/2754709",
-        "audio": "https://content.rss.com/episodes/12003/2754709/smiklespeaks/2026_04_21_19_18_28_555d948e-95b2-442a-87d3-09ab1cb0585a.mp3",
-        "duration": "1205",
-        "summary": "Neurodivergence, specifically neurodivergent leadership, is a quickly evolving area of interest for many organizations. Summer Jelinek helps us understand the concepts and their practical applications for organizations."
+        "display": "Understanding Neurodivergence, Pt. 1",
+        "link": "https://rss.com/podcasts/smiklespeaks/2754709"
       },
       {
         "title": "Understanding Neurodivergence, Featuring Summer Jelinek, Pt. 2",
-        "published": "2026-08-19T11:18:00+00:00",
-        "link": "https://rss.com/podcasts/smiklespeaks/2754717",
-        "audio": "https://content.rss.com/episodes/12003/2754717/smiklespeaks/2026_04_21_19_22_38_3eb10cf9-fb62-4db7-b890-004604b7fe73.mp3",
-        "duration": "1994",
-        "summary": "Summer Jelinek and I continue our conversation on neurodivergence, specifically in leadership."
+        "display": "Understanding Neurodivergence, Pt. 2",
+        "link": "https://rss.com/podcasts/smiklespeaks/2754717"
       },
       {
         "title": "Summer Jelinek on Leadership, Pt. 1",
-        "published": "2024-08-21T11:10:15+00:00",
-        "link": "https://rss.com/podcasts/smiklespeaks/1604031",
-        "audio": "https://content.rss.com/episodes/12003/1604031/smiklespeaks/2024_08_08_22_51_10_98e03f1b-0a4c-4aac-bea9-6a4a1eede45a.mp3",
-        "duration": "829",
-        "summary": "There’s a new book that everyone needs to know about: Unlocking the Magic of Leadership: 5 Keys to Inspire Yourself, Empower Others and Drive Extraordinary Results . Summer Jelinek is the author and she’s will lead us on a journey to…"
+        "display": "Summer Jelinek on Leadership",
+        "link": "https://rss.com/podcasts/smiklespeaks/1604031"
       }
     ]
   },
-  "updated": "2026-10-20T19:33:12+00:00"
+  "updated": "2026-10-20T20:07:01+00:00"
 }

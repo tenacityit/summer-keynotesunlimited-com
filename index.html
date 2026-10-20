@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Summer Jelinek | Leadership Keynote Speaker</title>
-    <meta name="description" content="Summer Jelinek is a leadership keynote speaker, consultant, and educator with more than two decades of leadership experience. Watch her videos and hear her on the SmikleSpeaks Podcast.">
+    <meta name="description" content="Summer Jelinek is a leadership keynote speaker, consultant, and educator with more than two decades of leadership experience. Watch her videos and hear her podcast interviews.">
     <meta property="og:title" content="Summer Jelinek | Leadership Keynote Speaker">
-    <meta property="og:description" content="Keynotes and coaching on leadership, the M.A.G.I.C. model, and neurodivergence in the workplace. Videos, podcast, and more.">
+    <meta property="og:description" content="Keynotes and coaching on leadership, the M.A.G.I.C. model, and neurodivergence in the workplace. Videos, podcast interviews, and more.">
     <meta property="og:image" content="https://summer.keynotesunlimited.com/img/summer-1.jpg">
     <meta property="og:url" content="https://summer.keynotesunlimited.com/">
     <link rel="icon" type="image/png" href="favicon.png">
@@ -97,7 +97,7 @@ h2.title::after { content: "\25C6"; display: block; font-size: 0.8rem; color: va
 /* Featured video + reel */
 .featured { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: start; }
 .embed { aspect-ratio: 16 / 9; background: var(--black); border-radius: 6px; overflow: hidden; }
-.embed iframe { width: 100%; height: 100%; border: 0; display: block; }
+.embed video, .embed iframe { width: 100%; height: 100%; border: 0; display: block; }
 .reel { padding: 26px; }
 .reel h3 { color: var(--gold-800); margin-bottom: 8px; }
 .reel p { color: var(--ink-muted); margin-bottom: 14px; font-size: 0.95rem; }
@@ -205,7 +205,6 @@ footer.site .cta { font-size: 1.15rem; color: var(--gold-300); font-weight: 600;
     </section>
 
     <main class="wrap">
-        <!-- Videos -->
         <section class="block" id="videos">
             <h2 class="title">Watch Summer</h2>
             <div class="featured">
@@ -232,21 +231,12 @@ footer.site .cta { font-size: 1.15rem; color: var(--gold-300); font-weight: 600;
             <p class="hint"><a href="https://www.youtube.com/@SummerJelinek?sub_confirmation=1" target="_blank" rel="noopener">Subscribe on YouTube</a></p>
         </section>
 
-        <!-- Podcast -->
         <section class="block" id="podcast">
-            <h2 class="title">Summer on The SmikleSpeaks Podcast</h2>
-            <p class="sub">Conversations with Dr. Joanne Smikle on neurodivergence and leadership.</p>
-            <div class="pod">
-                <div class="cover">
-                    <img id="podcover" src="img/podcast-cover.jpg" alt="SmikleSpeaks Podcast cover art">
-                    <p><a href="https://rss.com/podcasts/smiklespeaks/" target="_blank" rel="noopener">All episodes &rarr;</a></p>
-                </div>
-                <div id="episodes"></div>
-            </div>
-            <noscript><p class="hint">Turn on JavaScript to see the episodes, or visit <a href="https://rss.com/podcasts/smiklespeaks/">rss.com/podcasts/smiklespeaks</a>.</p></noscript>
+            <h2 class="title">Podcast Interviews</h2>
+            <div id="episodes"></div>
+            <noscript><p class="hint">Turn on JavaScript to see the episodes.</p></noscript>
         </section>
 
-        <!-- About -->
         <section class="block" id="about">
             <h2 class="title">About Summer</h2>
             <div class="cols">
@@ -283,7 +273,6 @@ footer.site .cta { font-size: 1.15rem; color: var(--gold-300); font-weight: 600;
             </div>
         </section>
 
-        <!-- Follow -->
         <section class="block" id="follow">
             <h2 class="title">Follow Summer</h2>
             <div class="follow">
@@ -311,8 +300,7 @@ footer.site .cta { font-size: 1.15rem; color: var(--gold-300); font-weight: 600;
 
     <script>
     (function () {
-        // Watermark: faint diamond headshots behind the page
-        var photos = ['summer-1', 'summer-2'].map(function (n) { return 'img/' + n + '.jpg'; });
+        var photos = ["img/summer-1.jpg", "img/summer-2.jpg"];
         var D = 170, box = document.querySelector('.watermark');
         function tiles() {
             var w = window.innerWidth, h = window.innerHeight, html = '';
@@ -327,15 +315,12 @@ footer.site .cta { font-size: 1.15rem; color: var(--gold-300); font-weight: 600;
         tiles();
 
         function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
-        function dur(s) { s = parseInt(s, 10); if (!s) return ''; var m = Math.round(s / 60); return m + ' min'; }
 
-        // Lightbox player
         var lb = document.getElementById('lightbox'), lbe = document.getElementById('lbembed');
         function closeLb() { lb.classList.remove('open'); lbe.innerHTML = ''; }
         document.getElementById('lbclose').addEventListener('click', closeLb);
         lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLb(); });
-
         document.addEventListener('click', function (e) {
             var a = e.target.closest('a.vid'); if (!a) return;
             e.preventDefault();
@@ -344,16 +329,11 @@ footer.site .cta { font-size: 1.15rem; color: var(--gold-300); font-weight: 600;
         });
 
         fetch('data/feeds.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (d) {
-            // Podcast
-            var p = d.podcast || {};
-            document.getElementById('episodes').innerHTML = (p.episodes || []).map(function (e) {
-                return '<article class="card ep"><h3><a href="' + esc(e.link) + '" target="_blank" rel="noopener">' + esc(e.title) + '</a></h3>' +
-                    '<div class="when">' + dur(e.duration) + '</div>' +
-                    '<p>' + esc(e.summary) + '</p>' +
-                    (e.audio ? '<audio controls preload="none" src="' + esc(e.audio) + '"></audio>' : '') + '</article>';
+            document.getElementById('episodes').innerHTML = ((d.podcast || {}).episodes || []).map(function (e) {
+                return '<article class="card ep"><h3><a href="' + esc(e.link) + '" target="_blank" rel="noopener">' + esc(e.display) + '</a></h3></article>';
             }).join('');
         }).catch(function () {
-            document.getElementById('episodes').innerHTML = '<p class="hint">Latest episodes are at <a href="https://rss.com/podcasts/smiklespeaks/">rss.com/podcasts/smiklespeaks</a>.</p>';
+            document.getElementById('episodes').innerHTML = '';
         });
     })();
     </script>
